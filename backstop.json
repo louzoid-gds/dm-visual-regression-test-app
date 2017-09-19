@@ -1,0 +1,91 @@
+{
+  "id": "backstop_dm",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "height": 768,
+      "width": 1024
+    },
+    {
+      "label": "Desktop",
+      "width": 1366,
+      "height": 768
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "DM Homepage",
+      "url": "http://localhost/"
+    },
+    {
+      "label": "Buyers - find a specialist",
+      "url": "http://localhost/buyers/frameworks/digital-outcomes-and-specialists-2/requirements/digital-specialists"
+    },
+    {
+      "label": "G-Cloud lot listing page",
+      "url": "http://localhost/g-cloud"
+    },
+    {
+      "label": "Crown hosting",
+      "url": "http://localhost/crown-hosting"
+    },
+    {
+      "label": "G-Cloud cloud hosting search results",
+      "url": "http://localhost/g-cloud/search?lot=cloud-hosting&serviceCategories=container+service"
+    },
+    {
+      "label": "G-Cloud supplier listing",
+      "url": "http://localhost/g-cloud/suppliers"
+    },
+    {
+      "label": "Account - buyer login",
+      "url": "http://localhost/user/login"
+    },
+    {
+      "label": "Account - supplier dashboard",
+      "url": "http://localhost/suppliers",
+      "username": "production-supplier-user@example.com",
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js"
+    },
+    {
+      "label": "Account - buyer dashboard",
+      "url": "http://localhost/buyers",
+      "username": "production-buyer-user@example.gov.uk",
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js"
+    },
+    {
+      "label": "Account - buyer create requirement form",
+      "url": "http://localhost/buyers/frameworks/digital-outcomes-and-specialists-2/requirements/digital-specialists/create?",
+      "username": "production-buyer-user@example.gov.uk",
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js"
+    },
+    {
+      "label": "Account - buyer create requirement form - validation",
+      "url": "http://localhost/buyers/frameworks/digital-outcomes-and-specialists-2/requirements/digital-specialists/create?",
+      "username": "production-buyer-user@example.gov.uk",
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js",
+      "submitForm": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts/casper",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "phantomjs",
+  "engineFlags": [],
+  "debug": false,
+  "debugWindow": false
+}
