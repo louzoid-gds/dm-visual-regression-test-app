@@ -26,12 +26,18 @@ module.exports = function (casper, scenario) {
   casper.then(function () {
     casper.echo('Saving new cookie(s)', 'INFO');
     var cookiesObj = {};
-    if (fs.exists(cookiePath)) {
-      cookiesObj = JSON.parse(fs.read(cookiePath));
-    }
-    cookiesObj[usr] = casper.page.cookies;
-    var cookies = JSON.stringify(cookiesObj, null, 2);
-    fs.write(cookiePath, cookies, 'w');
+
+    fs.open(cookiePath,'r',function(err, fd) {
+      if (!err) {
+        cookiesObj = JSON.parse(fd);
+      }
+      cookiesObj[usr] = casper.page.cookies;
+      var cookies = JSON.stringify(cookiesObj, null, 2);
+      fs.writeFile(cookiePath, cookies, function (err) {  
+        if (err) throw err;
+      });
+    });
+
   });
 
 
